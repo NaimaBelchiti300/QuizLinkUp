@@ -1,12 +1,17 @@
 import logo from './logo.svg';
-import './App.css';
+import About from './componants/about';
+import Reviews from './componants/reviews';
+import Footer from './componants/footer';
 
 function App() {
   return (
-    <div className="App">
-  routage implementation componant
+    <div>
+  <About/>
+  <Reviews/>
+  <Footer/>
     </div>
   );
 }
 
 export default App;
+  

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,500;1,500&family=Nunito+Sans:ital@1&family=Rubik:wght@600;700&display=swap');
+body{
+    background-color: white;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.foter1 p{
+    font-family: 'Noto Sans', sans-serif;
+    color: #000000;
+
+}
+.footer{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:600;
+    color: #000000;
+}
+h3{
+    font-weight: bold;
+    color: #6C6BF9;
+}
+li{
+    color: black;
+
+}
+li::marker {
+    color: #6C6BF9; /* Couleur du cercle */
+}
+.footer3 {
+    list-style: none; /* Désactiver le marqueur de liste par défaut */
+    margin-bottom: 50px;
+    padding: 0; /* Supprimer le remplissage par défaut */
+
+}
+.footer3 li{
+    display: flex; /* Utiliser Flexbox pour aligner les éléments */
+    align-items: center; /* Centrer les éléments verticalement */
+}
+.footer3 li::before {
+    content: ""; /* Contenu vide */
+    display: inline-block; /* Afficher comme un bloc */
+    width: 24px; /* Largeur de l'image */
+    height: 24px; /* Hauteur de l'image */
+    background-image: url('../images/icons8-nouveau-message-24.png'); /* Spécifier l'image */
+    background-size: contain; /* Ajuster la taille de l'image */
+    margin-right: 15px; /* Marge à droite de l'image */
+}
