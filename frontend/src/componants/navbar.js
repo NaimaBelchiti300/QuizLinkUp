@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import '../App.css';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import '../css/app.css';
 
 export default function NavBar() {
+    const [scrolled, setScrolled] = useState(false);
     const [showSignUpDropdown, setShowSignUpDropdown] = useState(false);
     const [showLogInDropdown, setShowLogInDropdown] = useState(false);
 
@@ -16,47 +18,56 @@ export default function NavBar() {
         setShowSignUpDropdown(false); // Close signup dropdown when login dropdown is opened
     };
 
-    return (
-        <nav className="navbar navbar-expand-lg  px-3 py-3">
-            <a className="navbar-brand mr-5 fw-large px-3"  href="/">QuizLinkUp</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
+    useEffect(() => {
+        const onScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        }
 
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
-                     <li className="nav-item marginleft">
-                        <Link className="nav-link active" to='/home'>Home</Link>
-                    </li>
-                    <li className="nav-item marginleft">
-                        <Link className="nav-link" to='/why'>Why us</Link>
-                    </li>
-                    <li className="nav-item marginleft">
-                        <Link className="nav-link" to='/about'>About us</Link>
-                    </li>
-                    <li className="nav-item marginleft dropdown">
-                        <Link className="nav-link dropdown-toggle" to="#" onClick={toggleSignUpDropdown} id="navbarDropdownSignUp" role="button" aria-haspopup="true" aria-expanded={showSignUpDropdown ? 'true' : 'false'}>
-                            Sign up
-                        </Link>
-                        <ul className={`dropdown-menu dropdown-menu-end shadow-lg col-3 mt-0 ${showSignUpDropdown ? 'show' : ''}`} aria-labelledby="navbarDropdownSignUp">
-                            <li><Link to='/signup/educator' className="dropdown-item">as educator</Link></li>
-                            <hr className="dropdown-divider col-10 mx-auto" />
-                            <li><Link to='/signup/student' className="dropdown-item">as student</Link></li>
-                        </ul>
-                    </li>
-                    <li className="nav-item marginleft dropdown">
-                        <Link className="nav-link dropdown-toggle" to="#" onClick={toggleLogInDropdown} id="navbarDropdownLogIn" role="button" aria-haspopup="true" aria-expanded={showLogInDropdown ? 'true' : 'false'}>
-                            Log in
-                        </Link>
-                        <ul className={`dropdown-menu dropdown-menu-end shadow-lg col-3 mt-0 ${showLogInDropdown ? 'show' : ''}`} aria-labelledby="navbarDropdownLogIn">
-                            <li><Link to='/signin/educator' className="dropdown-item">as educator</Link></li>
-                            <hr className="dropdown-divider col-10 mx-auto" />
-                            <li><Link to='/signin/student' className="dropdown-item">as student</Link></li>
-                        </ul>
-                        <div className="dropdown-divider"></div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        window.addEventListener("scroll", onScroll);
+
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    return (
+        <Navbar expand="lg" className={`p-4 ${scrolled ? 'scrolled' : ''}`}>
+            <Navbar.Brand className="mr-5 fw-large px-3" href="/">QuizLinkUp</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarSupportedContent" />
+
+            <Navbar.Collapse id="navbarSupportedContent">
+                <Nav className="mr-auto">
+                    <Nav.Link className="nav-link mx-5" href="#home">Home</Nav.Link>
+                    <Nav.Link className="nav-link mx-5" href="#why">Why QuizLinkUp</Nav.Link>
+                    <Nav.Link className="nav-link mx-5" href="#about">About QuizLinkUp</Nav.Link>
+
+                    <NavDropdown
+                        title="Sign up"
+                        id="navbarDropdownSignUp"
+                        show={showSignUpDropdown}
+                        onClick={toggleSignUpDropdown}
+                        className='mx-5'
+                    >
+                        <NavDropdown.Item as={Link} to="/signup/educator">as educator</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item as={Link} to="/signup/student">as student</NavDropdown.Item>
+                    </NavDropdown>
+
+                    <NavDropdown
+                        title="Log in"
+                        id="navbarDropdownLogIn"
+                        show={showLogInDropdown}
+                        onClick={toggleLogInDropdown}
+                        className='mx-5'
+                    >
+                        <NavDropdown.Item as={Link} to="/signin/educator">as educator</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item as={Link} to="/signin/student">as student</NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     );
 }

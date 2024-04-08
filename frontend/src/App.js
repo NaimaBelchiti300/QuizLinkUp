@@ -1,4 +1,3 @@
-import './App.css';
 import NavBar from './componants/navbar';
 import Banner from './componants/home';
 import Why from './componants/why';
@@ -10,11 +9,9 @@ function App() {
       {/* routage */}
       <Router>
       <NavBar/>
+      <Banner/>
+      <Why/>
         <Routes>
-          <Route path='/home' element={<Banner/>}/>
-          <Route path='/why' element={<Why/>}/>
-          <Route path='/about' element=''/>
-          <Route path='/reviews' element=''/>
           <Route path='/signup/educator' element=''/>
           <Route path='/signup/student' element=''/>
           <Route path='/signin/eductor' element=''/>
