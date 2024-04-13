@@ -5,8 +5,8 @@ import quize from "../images/quize3.png"
 import education from '../images/education.png'
 export default function About(){
     return(
-        <>
-        <div className='container-fluid row align-items-center  ' >
+        <div id='about' >
+        <div className='container-fluid row align-items-cente mt-5' >
    <div className='col-md-7  ' >
     <div class='headings'>
     <h1 >  <span style={{color:'#6A6A98'}}> Create Your First Quiz</span> <span style={{color:'#384079'}}>And</span>    </h1>
@@ -72,7 +72,7 @@ export default function About(){
     </div>
 </div>
 
- </>
+ </div>
 
     )
 
