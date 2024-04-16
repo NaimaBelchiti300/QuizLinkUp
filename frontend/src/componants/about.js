@@ -5,11 +5,11 @@ import quize from "../images/quize3.png"
 import education from '../images/education.png'
 export default function About(){
     return(
-        <div id='about' >
-        <div className='container-fluid row align-items-cente mt-5' >
-   <div className='col-md-7  ' >
-    <div class='headings'>
-    <h1 >  <span style={{color:'#6A6A98'}}> Create Your First Quiz</span> <span style={{color:'#384079'}}>And</span>    </h1>
+        <div id='about'>
+        <div className='container-fluid row align-items-center mt-5 pt-5' >
+   <div className='col-md-7' >
+    <div className='headings'>
+    <h1 className='mt-5'><span style={{color:'#6A6A98'}}> Create Your First Quiz</span> <span style={{color:'#384079'}}>And</span>    </h1>
    <h1><span style={{color:'#6C6BF9'}}> Personalize Learning !</span></h1>
     </div>
   
@@ -41,23 +41,14 @@ export default function About(){
 <span style={{color:'#384079',fontWeight:'bold',textAlign:'center'}}> Progress Tracking: </span>
     <p>  <span style={{color:'#384079'}}>QuizLinkUp</span> offers comprehensive features for tracking student progress over time. </p>
 </div>
-
-
-
-
-        </div>
-      
+</div>
         <div className='col-md-5'>
         <img src={quize} class="img-fluid" />
-
         </div>
  </div>
-
  <div className='col-md-12 d-flex justify-content-center mt-5'>
     <button class='btn btn-outline-primary' style={{fontWeight:'bold',width:'500px'}}>Create Your First Quiz</button>
 </div>
-
-
 <div className=' container-fluid row align-items-center mt-5 '>
     <div className='col-md-6'>
     <img src={education}/>
@@ -68,12 +59,9 @@ export default function About(){
         <p class='para1'>Experience the freedom to learn at your own pace, explore new subjects, and challenge yourself with engaging quizzes designed to stimulate critical thinking and foster a deeper comprehension of concepts. With intuitive navigation and user-friendly features, QuizLinkUp offers a seamless learning experience that adapts to your individual preferences and learning style.</p>    
     <button className='btn  text-white btn33 '>Start Learning</button>
     <button className='btn btn-outline-primary'>Create Account</button>
-
     </div>
 </div>
-
  </div>
-
-    )
+    );
 
 }
