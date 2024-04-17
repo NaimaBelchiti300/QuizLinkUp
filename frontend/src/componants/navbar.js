@@ -34,7 +34,7 @@ export default function NavBar() {
 
     return (
         <Navbar expand="lg" className={`p-4 ${scrolled ? 'scrolled' : ''}`}>
-            <Navbar.Brand className="mr-5 fw-large px-3" href="/">QuizLinkUp</Navbar.Brand>
+            <Navbar.Brand className="mr-5 fw-large px-3" href="#home">QuizLinkUp</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarSupportedContent" />
 
             <Navbar.Collapse id="navbarSupportedContent">

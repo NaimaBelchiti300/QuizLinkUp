@@ -24,8 +24,8 @@ QuizLinkUp: Your premier destination for interactive learning! Our platform empo
         </div>
         <div className='container-fluid  row align-items-center mt-5' style={{backgroundColor:'#6C6BF9'}}>
 
-            <div className='col-md-12 text-center p-2 '>
-                <h3 style={{color:'white'}}>© 2024, QuizLinkUp All Rights Reserved</h3>
+            <div className='col-md-12 text-center p-4'>
+                <h4 style={{color:'white'}}>© 2024, QuizLinkUp All Rights Reserved</h4>
             </div>
 
         </div>

@@ -1,11 +1,13 @@
 import '../css/reviews.css'
 import icon from '../images/icons8-citation-à-gauche-30 (1).png'
+
+
 export default function Reviews(){
     return(
         <>
         <div className='container-fluid row align-items-center mt-5 '>
             <div className='col-md-12'>
-            <h1 className="text-center mb-4">Read What Our Teachers Say About Us</h1>
+            <h1 className="text-center mb-4">Read What Teachers Say About Us</h1>
             </div>
            
         </div>
