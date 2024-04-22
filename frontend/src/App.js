@@ -1,29 +1,37 @@
-import NavBar from './componants/navbar';
-import Banner from './componants/home';
-import Why from './componants/why';
-import Reviews from './componants/reviews';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import About from './componants/about';
+import Landingpage from './pages/landingpage';
+import NavBar from './componants/navbar';
 import Footer from './componants/footer';
+import SignUpStudent from './componants/studentRegistration/studentSignup';
+import SignInStudent from './componants/studentRegistration/studentSignin';
+
+
 
 function App() {
+
+  const Layout = ({ children }) => {
+    return (
+      <div>
+        <NavBar />
+        <div >
+          {children}
+        </div>
+      </div>
+    );
+  };
   return (
     <div className="App">
-      {/* routage */}
-      <Router>
-      <NavBar/>
-      <Banner/>
-      <Why/>
-      <About/>
-      <Reviews/>
-      <Footer/>
+    <Router>
+        <Layout/>
         <Routes>
-          <Route path='/signup/educator' element=''/>
-          <Route path='/signup/student' element=''/>
-          <Route path='/signin/eductor' element=''/>
-          <Route path='/signin/student' element=''/>
+        <Route path='/' element={<Landingpage/>}/>
+          <Route path='/signup/educator'  element=''/>
+          <Route path='/signin/educator'  element=''/>
+          <Route path='/signup/student' element={<SignUpStudent/>}/>
+          <Route path='/signin/student' element={<SignInStudent/>}/>
         </Routes>
-  </Router>
+        <Footer/>
+ </Router>
     </div>
   );
 }

@@ -68,7 +68,7 @@ nav.navbar.scrolled {
   height: 100vh;
 }
 
-.content {
+.content{
   display: grid;
   place-content: center;
   text-align: center;
