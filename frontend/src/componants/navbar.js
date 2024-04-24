@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import '../css/app.css';
 
 export default function NavBar() {
-    const [scrolled, setScrolled] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
     const [showSignUpDropdown, setShowSignUpDropdown] = useState(false);
     const [showLogInDropdown, setShowLogInDropdown] = useState(false);
+
+    const toggleMenu = () => {
+        setShowMenu(!showMenu);
+    };
 
     const toggleSignUpDropdown = () => {
         setShowSignUpDropdown(!showSignUpDropdown);
@@ -18,30 +21,18 @@ export default function NavBar() {
         setShowSignUpDropdown(false); // Close signup dropdown when login dropdown is opened
     };
 
-    useEffect(() => {
-        const onScroll = () => {
-            if (window.scrollY > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        }
 
-        window.addEventListener("scroll", onScroll);
-
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
 
     return (
         <Navbar expand="lg" className={`p-4 ${scrolled ? 'scrolled' : ''}`}>
-            <Navbar.Brand className="mr-5 fw-large px-3" as={Link} to='/'>QuizLinkUp</Navbar.Brand>
+            <Navbar.Brand className="mr-5 fw-large px-3" href="#home">QuizLinkUp</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarSupportedContent" />
 
             <Navbar.Collapse id="navbarSupportedContent">
                 <Nav className="mr-auto">
-                    <Nav.Link className="nav-link mx-5" as={Link} to='/'>Home</Nav.Link>
-                    <Nav.Link className="nav-link mx-5"as={Link} to='/'>Why QuizLinkUp</Nav.Link>
-                    <Nav.Link className="nav-link mx-5"as={Link} to='/'>About QuizLinkUp</Nav.Link>
+                    <Nav.Link className="nav-link mx-5" href="#home">Home</Nav.Link>
+                    <Nav.Link className="nav-link mx-5" href="#why">Why QuizLinkUp</Nav.Link>
+                    <Nav.Link className="nav-link mx-5" href="#about">About QuizLinkUp</Nav.Link>
 
                     <NavDropdown
                         title="Sign up"
@@ -50,9 +41,9 @@ export default function NavBar() {
                         onClick={toggleSignUpDropdown}
                         className='mx-5'
                     >
-                        <NavDropdown.Item as={Link} to="/formateurRegister/signup">as educator</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/signup/educator">as educator</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item as={Link} to="/student/signup">as student</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/signup/student">as student</NavDropdown.Item>
                     </NavDropdown>
 
                     <NavDropdown
@@ -62,9 +53,9 @@ export default function NavBar() {
                         onClick={toggleLogInDropdown}
                         className='mx-5'
                     >
-                        <NavDropdown.Item as={Link} to="/formateurRegister/signin">as educator</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/signin/educator">as educator</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item as={Link} to="/student/signin">as student</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/signin/student">as student</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
