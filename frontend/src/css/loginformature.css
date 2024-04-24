@@ -1,0 +1,30 @@
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.thetext{
+    text-decoration: none;
+    color: #974EB0;
+    margin-left: 0.5rem;
+}   
+.button1{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.button{
+  background-color: #974EB0;
+  border-color: #974EB0;
+  color: white;
+  height: 35px;
+  width: 400px;
+}
+.button:hover{
+ color: white;
+ background-color: #CB9CF7;
+ border-color: #CB9CF7;
+ transition: 1s;
+}

@@ -5,27 +5,47 @@ import Reviews from './componants/reviews';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './componants/about';
 import Footer from './componants/footer';
-
+import SignUP from './componants/formateurRegister/signup';
+import LoginFormatuer from './componants/formateurRegister/login';
+import StudentSignup from './componants/studentRegistration/studentSignup';
+import SigninStudent from './componants/studentRegistration/studentSignin';
 function App() {
   return (
     <div className="App">
       {/* routage */}
       <Router>
       <NavBar/>
-      <Banner/>
-      <Why/>
-      <About/>
-      <Reviews/>
-      <Footer/>
-        <Routes>
-          <Route path='/signup/educator' element=''/>
-          <Route path='/signup/student' element=''/>
-          <Route path='/signin/eductor' element=''/>
-          <Route path='/signin/student' element=''/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+      <Routes>
+      <Route path="/" element={<Home />} />
+          <Route path='/formateurRegister/signin' element={<LoginFormatuer/>}/>
+          <Route path='/formateurRegister/signup' element={<SignUP/>}/>
+          <Route path='/student/signup' element={<StudentSignup/>}/>
+          <Route path='/student/signin' element={<SigninStudent/>}/>
         </Routes>
   </Router>
+  <br/>
+  <br/>
+
+      <Footer/>
+ 
     </div>
   );
 }
 
 export default App;
+
+function Home() {
+  return (
+    <div>
+      <Banner />
+      <Why />
+      <About />
+      <Reviews />
+    </div>
+  );
+}
