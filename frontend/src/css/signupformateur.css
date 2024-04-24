@@ -1,0 +1,29 @@
+
+.container:hover{
+    background-color: initial; /* Réinitialiser la couleur de fond sur le style par défaut */
+    color: initial;
+  }
+ .buttonsingupformateur{
+  color:  white;
+  width: 500px;
+  height: 35px;
+  background-color:#974EB0;
+  border-color:#974EB0;
+
+ }
+ .buttonfr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .buttonsingupformateur:hover{
+  color: white;
+  background-color: #CB9CF7;
+  transition: 1s;
+  border-color: #CB9CF7;
+ }
+
+ 
+ .container{
+  border: none;
+ }
