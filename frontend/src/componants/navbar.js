@@ -34,14 +34,14 @@ export default function NavBar() {
 
     return (
         <Navbar expand="lg" className={`p-4 ${scrolled ? 'scrolled' : ''}`}>
-            <Navbar.Brand className="mr-5 fw-large px-3" as={Link} to='/'>QuizLinkUp</Navbar.Brand>
+            <Navbar.Brand className="mr-5 fw-large px-3" as={Link}  to="/">QuizLinkUp</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarSupportedContent" />
 
             <Navbar.Collapse id="navbarSupportedContent">
                 <Nav className="mr-auto">
-                    <Nav.Link className="nav-link mx-5" as={Link} to='/'>Home</Nav.Link>
-                    <Nav.Link className="nav-link mx-5"as={Link} to='/'>Why QuizLinkUp</Nav.Link>
-                    <Nav.Link className="nav-link mx-5"as={Link} to='/'>About QuizLinkUp</Nav.Link>
+                    <Nav.Link className="nav-link mx-5"   >Home</Nav.Link>
+                    <Nav.Link className="nav-link mx-5" >Why QuizLinkUp</Nav.Link>
+                    <Nav.Link className="nav-link mx-5" >About QuizLinkUp</Nav.Link>
 
                     <NavDropdown
                         title="Sign up"

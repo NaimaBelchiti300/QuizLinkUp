@@ -50,7 +50,7 @@ const onSubmit = async (e) => {
         icon: 'success',
         title: 'Success!',
         text: 'login réussie! your welcom !...',
-    });      navigate("/Home"); 
+    });      navigate("/"); 
     } catch (err) {
       console.error(err.response.data);
     
