@@ -15,6 +15,7 @@
 .navbar {
   background-color: #fff;
   padding: 15px;
+  position: fixed;
 }
 
 nav.navbar {

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../css/app.css';
 
 export default function NavBar() {
-    const [scrolled, setScrolled] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [showSignUpDropdown, setShowSignUpDropdown] = useState(false);
     const [showLogInDropdown, setShowLogInDropdown] = useState(false);
@@ -22,22 +21,10 @@ export default function NavBar() {
         setShowSignUpDropdown(false); // Close signup dropdown when login dropdown is opened
     };
 
-    useEffect(() => {
-        const onScroll = () => {
-            if (window.scrollY > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        }
 
-        window.addEventListener("scroll", onScroll);
-
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
 
     return (
-        <nav className={`navbar navbar-expand-lg navbar-light bg-light p-4 ${scrolled ? 'scrolled' : ''}`}>
+        <nav className={`navbar navbar-expand-lg navbar-light bg-light p-4`}>
             <div className="container">
                 <Link className="navbar-brand mr-5 fw-large px-3">QuizLinkUp</Link>
                 <button className="navbar-toggler" type="button" onClick={toggleMenu}>
