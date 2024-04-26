@@ -39,9 +39,9 @@ export default function NavBar() {
 
             <Navbar.Collapse id="navbarSupportedContent">
                 <Nav className="mr-auto">
-                    <Nav.Link className="nav-link mx-5"   >Home</Nav.Link>
-                    <Nav.Link className="nav-link mx-5" >Why QuizLinkUp</Nav.Link>
-                    <Nav.Link className="nav-link mx-5" >About QuizLinkUp</Nav.Link>
+                <Nav.Link className="nav-link mx-5" href="#home">Home</Nav.Link>
+                <Nav.Link className="nav-link mx-5" href="#whyus">Why QuizLinkUp</Nav.Link>
+                <Nav.Link className="nav-link mx-5" href="#about">About QuizLinkUp</Nav.Link>
 
                     <NavDropdown
                         title="Sign up"

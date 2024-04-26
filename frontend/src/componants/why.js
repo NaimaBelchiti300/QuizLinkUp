@@ -5,7 +5,7 @@ import whyimg from '../images/studyonline.png';
 
 export default function Why() {
     return (
-        <Container fluid id='why'>
+        <Container fluid id='whyus'>
             <Row className='pt-5 why-section'>
                 <Col xs={12} md={6} xl={6} className='p-5'>
                     <h1 className='why-title mt-5 pt-5'>Why QuizLinkUp ?</h1>
