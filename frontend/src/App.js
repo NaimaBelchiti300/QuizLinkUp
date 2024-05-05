@@ -9,6 +9,9 @@ import SignUP from './componants/formateurRegister/signup';
 import LoginFormatuer from './componants/formateurRegister/login';
 import StudentSignup from './componants/studentRegistration/studentSignup';
 import SigninStudent from './componants/studentRegistration/studentSignin';
+import Formateur from './componants/formateur';
+import Student from './componants/student';
+import ProtectedRoute from './componants/services';
 function App() {
   return (
     <div className="App">
@@ -26,6 +29,22 @@ function App() {
           <Route path='/formateurRegister/signup' element={<SignUP/>}/>
           <Route path='/student/signup' element={<StudentSignup/>}/>
           <Route path='/student/signin' element={<SigninStudent/>}/>
+
+          <Route path='/formateure' element={
+          <ProtectedRoute>
+
+          <Formateur/>
+          </ProtectedRoute>
+
+          }/>
+          <Route path='/student' element={
+          <ProtectedRoute>
+          <Student/>
+          </ProtectedRoute>
+          
+          }/>
+
+
         </Routes>
   </Router>
   <br/>
