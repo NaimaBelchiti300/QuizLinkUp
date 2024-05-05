@@ -51,8 +51,7 @@ const onSubmit = async e => {
         Swal.fire({
             icon: 'error',
             title: ' error !',
-            text: 'Une erreur s\'est produite.',
-        });
+            text: 'Une erreur s\'est produite, Veuillez remplir tous les champs',        });
     }
 };
 return(
