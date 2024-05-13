@@ -59,7 +59,7 @@ const onSubmit = async (e) => {
         icon: 'success',
         title: 'Success!',
         text: 'login réussie! your welcom !...',
-    });      navigate("/formateure"); 
+    });      navigate("/formateure/Accueil"); 
     } catch (err) {
       console.error(err.response.data);
     
