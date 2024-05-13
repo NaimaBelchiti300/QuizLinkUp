@@ -2,7 +2,7 @@ import '../css/footer.css'
 
 export default function Footer(){
     return(
-        <>
+        <div className='footer-global'>
         <div className='container-fluid row align-items-center  mt-5 footer'>
 <div className='col-md-6 foter1'>
 <p className="footer-paragraph">
@@ -29,6 +29,6 @@ QuizLinkUp: Your premier destination for interactive learning! Our platform empo
             </div>
 
         </div>
-        </>
+        </div>
     )
 }

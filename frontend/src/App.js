@@ -1,8 +1,9 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import NavBar from './componants/navbar';
 import Banner from './componants/home';
 import Why from './componants/why';
 import Reviews from './componants/reviews';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './componants/about';
 import Footer from './componants/footer';
 import SignUP from './componants/formateurRegister/signup';
@@ -12,51 +13,53 @@ import SigninStudent from './componants/studentRegistration/studentSignin';
 import Formateur from './componants/formateur';
 import Student from './componants/student';
 import ProtectedRoute from './componants/services';
+
 function App() {
   return (
-    <div className="App">
-      {/* routage */}
-      <Router>
-      <NavBar/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-      <Routes>
-      <Route path="/" element={<Home />} />
-          <Route path='/formateurRegister/signin' element={<LoginFormatuer/>}/>
-          <Route path='/formateurRegister/signup' element={<SignUP/>}/>
-          <Route path='/student/signup' element={<StudentSignup/>}/>
-          <Route path='/student/signin' element={<SigninStudent/>}/>
-
-          <Route path='/formateure' element={
-          <ProtectedRoute>
-
-          <Formateur/>
-          </ProtectedRoute>
-
-          }/>
+    <div className="App mt-5">
+      <Router basename="/">
+        <Routes>
+          <Route path='/formateure/*' element={
+            <ProtectedRoute>
+              <Formateur />
+            </ProtectedRoute>
+          } />
+          <Route path="/" element={
+            <MainLayout>
+              <Home />
+            </MainLayout>
+          } />
+          <Route path='/formateurRegister/signin' element={
+            <MainLayout>
+              <LoginFormatuer />
+            </MainLayout>
+          } />
+          <Route path='/formateurRegister/signup' element={<MainLayout>
+            <SignUP />
+          </MainLayout>} />
+          <Route path='/student/signup' element={<MainLayout><StudentSignup /></MainLayout>} />
+          <Route path='/student/signin' element={<MainLayout><SigninStudent /></MainLayout>} />
           <Route path='/student' element={
-          <ProtectedRoute>
-          <Student/>
-          </ProtectedRoute>
-          
-          }/>
-
-
+              <Student />
+          } />
         </Routes>
-  </Router>
-  <br/>
-  <br/>
-
-      <Footer/>
- 
+      </Router>
     </div>
   );
 }
 
-export default App;
+function MainLayout({ children }) {
+  const location = useLocation();
+  const hideNavBarFooter = location.pathname.startsWith('/formateure');
+
+  return (
+    <div>
+      {!hideNavBarFooter && <NavBar />}
+      {children}
+      {!hideNavBarFooter && <Footer />}
+    </div>
+  );
+}
 
 function Home() {
   return (
@@ -68,3 +71,5 @@ function Home() {
     </div>
   );
 }
+
+export default App;
