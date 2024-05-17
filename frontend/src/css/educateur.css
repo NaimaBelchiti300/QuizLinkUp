@@ -89,7 +89,7 @@ color: #5768D2;
 .para-texts p{
     width: 60%;
     margin: auto;
- margin-top: 90px;
+ margin-top: 50px;
  font-size: 30px;
  text-align: center;
 }
@@ -246,4 +246,73 @@ border-radius: 10px;
     border-radius: 5px;
     background-color: #f9f9f9;
     margin-bottom: 100px;
+}
+
+
+.buttonssubmitedit{
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 200px;
+  }
+  
+.buttonssubmitedit button{
+    height: 40px;
+    margin-left: 10px;
+    width: 150px;
+    color: white;
+    text-align: center;
+border: 1px solid #20a83b ;
+background-color: #20a83b;font-size: 20px;
+border-radius: 10px;
+font-weight: bold;
+
+}
+.buttonssubmitedit button:hover{
+    transition: 1s;
+    background-color: white;
+    border-color:  #20a83b;
+    color: #20a83b;
+    font-weight: bold;
+
+}
+
+
+.buttonsubmitdelete{
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+.buttonsubmitdelete button{
+    height: 40px;
+    margin-left: 10px;
+    width: 150px;
+    color: white;
+    text-align: center;
+border: 1px solid #c13c2d ;
+background-color: #c13c2d;font-size: 20px;
+border-radius: 10px;
+font-weight: bold;
+}
+.buttonsubmitdelete button:hover{
+    transition: 1s;
+    background-color: white;
+    border-color:  #c13c2d;
+    color: #c13c2d;
+    font-weight: bold;
+
+}
+button .deleteimg{
+margin-bottom: 3px;
+width: 22%;
+}
+button .updateimg{
+    margin-bottom: 3px;
+width: 20.5%;
+}
+ button .savebtn{
+    margin-bottom: 3px;
+width: 20.1%;
 }

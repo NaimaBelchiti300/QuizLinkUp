@@ -20,7 +20,8 @@ export default function LeftPart() {
         <div className='buttons'>
             <div className='icons'><img src={home}/><NavLink to='./Accueil'> Accueil</NavLink></div>
             <div className='icons'> <img src={progress}/><NavLink to='./progress'>Progress</NavLink></div>
-            <div className='icons'><img src={quiz}/><NavLink to='./Quizzes'>Quizzes</NavLink></div> 
+            <div className='icons'><img src={quiz}/><NavLink to='./Quizzes'>Add Quize</NavLink></div> 
+            <div className='icons'><img src={quiz}/><NavLink to='./YourQuizzes'>Your Quizzes</NavLink></div> 
             <div className='icons'><img src={quiz}/><a onClick={handlelogout}>Logout</a></div> 
 
          </div>

@@ -6,6 +6,7 @@ import LeftPart from './LeftPart';
 import Accueil from './Accueil';
 import Quiziss from './quizzes';
 import Progress from './Progress';
+import EducatorQuizzes from './YourQuizzes';
 
 export default function Formateur() {
     return (
@@ -21,6 +22,7 @@ export default function Formateur() {
                         <Route path='Accueil' element={<Accueil />} />
                         <Route path='Quizzes' element={<Quiziss />} />
                         <Route path='Progress' element={<Progress/>} />
+                        <Route path='YourQuizzes' element={<EducatorQuizzes/>}/>
 
                     </Routes>
                 </div>
