@@ -56,7 +56,7 @@ const onSubmit = async e => {
 };
 return(
 <>
-  <div className='row forms mx-auto'>
+  <div className='row forms mx-auto' style={{marginTop:'100px'}} >
   <div className='col-md-6 imgdiv position-relative'>
   <img src={imgstudents} className='mb-5 position-absolute start-0'/>
 </div>
