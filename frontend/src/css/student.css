@@ -1,0 +1,72 @@
+.avatar{
+    width: 35%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: 2px solid #ffffff;
+    background-color: #E3CFF8;
+    background: linear-gradient(to left, #DDC6F6, #fcf9ff);
+    border-radius: 35px;
+    height: 220px;
+    margin-left: 15px;
+}
+.section-hero{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.avatar .img-avatar{
+    width: 100%;
+    height: auto;
+    margin-left: 30px;
+    
+}
+.img-avatar img{
+    width: 100%;
+}
+.student-name{
+    margin-bottom: 85px;
+
+}
+
+.student-name h1{
+    font-weight: initial;
+    color: blueviolet;
+        margin-left: 25px;
+
+}
+.student-name h3{
+    font-weight: lighter;
+color: blueviolet;
+    margin-left: 25px;
+
+}
+
+.inputs{
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: 2px solid #ffffff;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); 
+    background-color: #FFFFFF;
+    border-radius: 35px;
+    height: 200px;
+}
+.inputs-buttom{
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    align-items: center;
+}
+
+.nav-student{
+    width: 100%;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    height: auto;
+    background-color: white;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); 
+}

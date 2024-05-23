@@ -23,7 +23,6 @@ export default function LeftPart() {
             <div className='icons'><img src={quiz}/><NavLink to='./Quizzes'>Add Quize</NavLink></div> 
             <div className='icons'><img src={quiz}/><NavLink to='./YourQuizzes'>Your Quizzes</NavLink></div> 
             <div className='icons'><img src={quiz}/><a onClick={handlelogout}>Logout</a></div> 
-
          </div>
         );}
 
