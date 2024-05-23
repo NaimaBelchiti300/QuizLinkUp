@@ -40,7 +40,9 @@ function App() {
           <Route path='/student/signup' element={<MainLayout><StudentSignup /></MainLayout>} />
           <Route path='/student/signin' element={<MainLayout><SigninStudent /></MainLayout>} />
           <Route path='/student' element={
+            <ProtectedRoute>
               <Student />
+            </ProtectedRoute>
           } />
         </Routes>
       </Router>

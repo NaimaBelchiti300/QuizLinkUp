@@ -316,3 +316,44 @@ width: 20.5%;
     margin-bottom: 3px;
 width: 20.1%;
 }
+
+.card-quizez{
+    background-color: white;
+    box-shadow: 0 8px 8px rgb(238, 232, 232);
+    width: 30%;
+    margin: 12px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.card-quizez li{
+    list-style: none;
+    margin: 15px;
+}
+.card-ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-quiz{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.button-quiz div{
+    border: none;
+    background-color: #9f6fc6;
+    color: white;
+    font-weight: lighter;
+    border-radius: 10px;
+    height: 50px;
+}
+.button-quiz a{
+    text-decoration: none;
+    color: white;
+}
+
+.button-quiz a:hover{
+    color: white;
+}
