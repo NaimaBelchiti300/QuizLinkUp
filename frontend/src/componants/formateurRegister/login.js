@@ -74,9 +74,9 @@ const onSubmit = async (e) => {
   return (
     
     <form onSubmit={onSubmit}>
- <MDBContainer fluid className="p-5 my-5">
+ <MDBContainer fluid className="pt-3 mt-3">
 
-<MDBRow>
+<MDBRow className="pt-5 mt-5">
 
   <MDBCol col='10' md='6'>
     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image" />

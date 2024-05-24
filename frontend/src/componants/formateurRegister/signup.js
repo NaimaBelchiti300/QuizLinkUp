@@ -55,11 +55,11 @@ const onSubmit = async e => {
 };
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className='pt-5 mt-5 mx-2'>
             <MDBContainer fluid className=' background-radial-gradient overflow-hidden'>
                 <MDBRow>
                     <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
-                        <h1 className="my-5 display-3 fw-bold ls-tight px-3" style={{color: '#f793e9 '}}>
+                        <h1 className="display-3 fw-bold ls-tight px-3" style={{color: '#f793e9 '}}>
                             The best platform  <br />
                             <span style={{color: '#F7B7EF'}}>to create quizzes and track your students' progress</span>
                         </h1>

@@ -2,7 +2,7 @@ import '../css/footer.css'
 
 export default function Footer(){
     return(
-        <div className='footer-global'>
+        <div className='footer-global mt-5 pt-5'>
         <div className='container-fluid row align-items-center  mt-5 footer'>
 <div className='col-md-6 foter1'>
 <p className="footer-paragraph">

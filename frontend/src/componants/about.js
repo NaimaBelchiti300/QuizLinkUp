@@ -7,7 +7,7 @@ import education from '../images/education.png'
 
 export default function About(){
     return(
-        <div id='about'>
+        <div id='about' className='pt-4'>
         <div className='container-fluid row align-items-center mt-5 pt-5' >
    <div className='col-md-7 p-4' >
     <div className='headings'>

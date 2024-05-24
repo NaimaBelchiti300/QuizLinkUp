@@ -65,7 +65,7 @@ const onSubmit = async (e) => {
     return(
         <>
         
-        <div className='row forms1 mx-auto'>
+        <div className='row forms1 mx-auto mt-5 pt-5'>
 
         <div className='col-md-6 imgdiv1 position-relative'>
   <img src={imgstudents} className='position-absolute start-0'/>
