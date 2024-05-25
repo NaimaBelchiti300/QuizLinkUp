@@ -1,5 +1,8 @@
 
+body{
+    overflow-x: hidden;
 
+}
 
 .left-part{
     height: 100vh;
@@ -10,6 +13,7 @@
     position: fixed;
     left: 0;
     top: 0;
+    width: 300px;
 }
 
 
@@ -71,12 +75,13 @@ div a:hover{
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    margin-left: 20px;
+    margin-left: 150px;
 }
 .profile h1{
 width: 100%;
 margin-top: 10px;
 color: #5768D2;
+
 
 }
 
@@ -177,7 +182,6 @@ background-color: #E595ED;font-size: 20px;
 .charts{
     width: 100%;
     height: auto;
-   
 }
 .row-charts{
     display: flex;
@@ -317,49 +321,89 @@ width: 20.5%;
 width: 20.1%;
 }
 
-.card-quizez{
-    background-color: white;
-    box-shadow: 0 8px 8px rgb(239, 230, 230);
-    width: 30%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 40px;
-    padding: 20px;
-    margin: 12px;
-}
-.card-quizez li{
-    list-style: none;
-
-}
-.card-ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-
-}
-.button-quiz{
+.profile1{
     width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
+    margin-top: 30px;
+    margin-left: 20px;   
 }
-.button-quiz button{
-    border: none;
-    background-color: #9f6fc6;
-    color: white;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-top: 15px;
-    height: 40px;
-    width: 180px;
-}
-.button-quiz a{
-    text-decoration: none;
-    color: white;
+.profile1 h2{
+width: 100%;
+font-size: 30px;
+margin-top: 10px;
+color: #ffffff;
+font-weight: bold;
+
 }
 
-.button-quiz a:hover{
+
+
+
+
+
+
+
+
+.card-ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin-left: 45px;
+  }
+  
+  .card-quizez {
+    flex: 1 1 calc(33.333% - 20px);
+    margin: 10px;
+  }
+  
+  .card-item {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 14px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.8s;
+  }
+  
+  .card-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .quiz-title {
+    color: #40396e;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: 'serif';
+    margin-bottom: 25px;
+  }
+  .imgheading{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button-quiz {
+    margin-bottom: 25px;
+  }
+  
+  .button-quiz button {
+    background-color: #40396e;
     color: white;
-}
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+  }
+  
+  .button-quiz button:hover {
+    background-color: #6a3fa0;
+  }
+  
+  .button-quiz a {
+    color: white;
+    text-decoration: none;
+  }
+  

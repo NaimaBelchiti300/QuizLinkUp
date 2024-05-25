@@ -28,8 +28,8 @@ class Progress extends Component {
 
   render() {
     return (
-      <div className="charts">
-        <div className="texts">
+      <div className="charts" style={{marginLeft:'45px'}}>
+        <div className="texts" style={{marginLeft:'45px'}}>
             Progress of your students
         </div>
         <div className="row-charts">
