@@ -24,7 +24,7 @@ const EducatorQuizzes = () => {
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching quizzes:', error);
-                setError('Failed to fetch quizzes');
+                setError('No quizzes Yet');
                 setLoading(false);
             }
         };
@@ -37,7 +37,10 @@ const EducatorQuizzes = () => {
     }
 
     if (error) {
-        return <div>{error}</div>;
+        return (
+        <div style={{width:'100%',justifyContent:'center',alignItems:'center',display:"flex",marginTop:'200px'}}>
+            <div className='text-danger' style={{fontSize:'50px',fontWeight:'bold',textAlign:'center',margin:'auto'}}>{error}</div>;
+        </div>)
     }
 
     return (
