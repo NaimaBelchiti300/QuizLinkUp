@@ -7,7 +7,7 @@ import Accueil from './Accueil';
 import Quiziss from './quizzes';
 import Progress from './Progress';
 import EducatorQuizzes from './YourQuizzes';
-import Detailquize from './Detailquize'
+import Detailquize from './Detailquize';
 export default function Formateur() {
     return (
         <div className='container-fluid row'>
@@ -23,8 +23,7 @@ export default function Formateur() {
                         <Route path='Quizzes' element={<Quiziss />} />
                         <Route path='Progress' element={<Progress/>} />
                         <Route path='YourQuizzes' element={<EducatorQuizzes/>}/>
-
-                        
+                <Route path='YourQuizzes/Detailquize/:id' element={<Detailquize/>} />
 
                     </Routes>
                 </div>
