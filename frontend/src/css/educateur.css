@@ -327,17 +327,19 @@ width: 20.1%;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    margin-left: 20px;   
 }
 .profile1 h2{
 width: 100%;
-font-size: 30px;
-margin-top: 10px;
+font-size: 25px;
+margin-top: 13px;
 color: #ffffff;
 font-weight: bold;
+margin-left: 10px;
 
 }
-
+.profile1 img{
+  width: 45%;
+}
 
 
 
@@ -406,4 +408,7 @@ font-weight: bold;
     color: white;
     text-decoration: none;
   }
+  
+
+
   

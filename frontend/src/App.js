@@ -16,14 +16,9 @@ import ProtectedRoute from './componants/services';
 
 function App() {
   return (
-    <div className="App mt-5">
+    <div className="App">
       <Router basename="/">
         <Routes>
-          <Route path='/formateure/*' element={
-            <ProtectedRoute>
-              <Formateur />
-            </ProtectedRoute>
-          } />
           <Route path="/" element={
             <MainLayout>
               <Home />
@@ -47,6 +42,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    
   );
 }
 

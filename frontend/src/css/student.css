@@ -54,19 +54,255 @@ color: blueviolet;
     height: 200px;
 }
 .inputs-buttom{
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-content: space-between;
     align-items: center;
 }
-
-.nav-student{
-    width: 100%;
-    margin: 0;
-    top: 0;
-    bottom: 0;
-    padding: 0;
-    height: auto;
-    background-color: white;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); 
+.inputs-buttom input{
+    width: 400px;
+    height: 50px;
+    margin: 12px;
 }
+.inputs-buttom button{
+    border: none;
+    background-color: #6a3fa0;
+    color: white;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 5px;
+    width: 150px;
+}
+.inputs-buttom button:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(111, 33, 185);
+border: 1px solid rgb(111, 33, 185);
+    transition: 2s;
+    border-radius: 5px;
+
+}
+
+
+.nav-student {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Adjust this value to add space at the top */
+    
+  }
+  
+  .brand {
+    font-weight: bold;
+    font-size: 55px;
+    color: blueviolet;
+    text-decoration: none;
+  }
+  .brand:hover{
+    color: rgb(111, 33, 185);
+
+  }
+  .nav-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-button {
+    color: rgb(179, 179, 179);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 250px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+
+    
+  }
+  
+  .nav-button:hover {
+    color: #6a3fa0;
+  }
+
+/* List styles */
+.card-ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Card styles */
+.card-quizez {
+  flex: 1 1 calc(33.333% - 20px);
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.card-item {
+    background: linear-gradient(to left, #e9dbe0, #ffd2f2); /* Linear gradient from pastel pink to purple */
+    border-radius: 25px; /* More rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+.quiz-title {
+    color: #b366ff;/* Tomato color */
+    font-weight: bold;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fun font */
+  margin-bottom: 15px;
+  text-align: center; /* Centered text */
+}
+
+.quiz-title1 {
+    color: #b366ff;/* Tomato color */
+    font-weight: bold;
+  font-size: 20px;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fun font */
+  margin-bottom: 15px;
+  text-align: center; /* Centered text */
+}
+
+.card-item h4 {
+  color: #b366ff;/* Tomato color */
+  margin-bottom: 10px;
+  text-align: center; /* Centered text */
+}
+
+/* Button styles */
+.button-quiz {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.details-button {
+  background-color: #32cd32; /* Lime green background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px; /* More rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.details-button:hover {
+  background-color: #228b22; /* Darker green on hover */
+  transform: scale(1.05);
+}
+
+.details-link {
+  color: white;
+  text-decoration: none;
+}
+
+/* Additional playful elements */
+.card-item::before {
+  content: '🎉';
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+  /* List styles */
+  .card-ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Card styles */
+  .card-quizez {
+    flex: 1 1 calc(33.333% - 40px); /* Three cards per line with space between them */
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .card-item {
+    background: linear-gradient(to left, #e9dbe0, #ffd2f2); /* Linear gradient from pastel pink to purple */
+    border-radius: 25px; /* More rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    padding: 20px;
+    width: 100%;
+    max-width: 350px; /* Increased width to accommodate larger titles */
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  }
+  
+  .quiz-title {
+    color: #b366ff;/* Tomato color */
+    font-weight: bold;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fun font */
+    margin-bottom: 15px;
+    text-align: center; /* Centered text */
+  }
+  
+  .card-item h4 {
+    color: #b366ff;/* Tomato color */
+    margin-bottom: 10px;
+    text-align: center; /* Centered text */
+  }
+  
+  /* Button styles */
+  .button-quiz {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .details-button {
+    background-color: #32cd32; /* Lime green background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px; /* More rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .details-button:hover {
+    background-color: #228b22; /* Darker green on hover */
+    transform: scale(1.05);
+  }
+  
+  .details-link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .card-item::before {
+    content: url('../images/icons8-quiz-50 (1).png');
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  

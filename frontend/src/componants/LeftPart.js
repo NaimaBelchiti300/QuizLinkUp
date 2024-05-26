@@ -9,7 +9,7 @@ import logout from '../images/icons8-sortie-24.png'
 import { useNavigate } from 'react-router-dom';
 import detail from '../images/icons8-tester-24.png'
 import axios from 'axios';
-import user from '../images/icons8-utilisateur-sexe-neutre-30 (1).png';
+import user from '../images/icons8-utilisateur-48.png';
 
 export default function LeftPart() {
     const navigate=useNavigate()
