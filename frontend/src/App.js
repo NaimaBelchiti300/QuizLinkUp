@@ -19,6 +19,11 @@ function App() {
     <div className="App">
       <Router basename="/">
         <Routes>
+        <Route path='/formateure/*' element={
+            <ProtectedRoute>
+              <Formateur />
+            </ProtectedRoute>
+          } />
           <Route path="/" element={
             <MainLayout>
               <Home />
@@ -39,6 +44,8 @@ function App() {
               <Student />
             </ProtectedRoute>
           } />
+
+
         </Routes>
       </Router>
     </div>
