@@ -6,10 +6,14 @@ import avatar from '../images/v2-removebg-preview.png';
 import logout from '../images/icons8-sortie-24 (1).png';
 import activite from '../images/icons8-temps-24 (1).png';
 import '../css/student.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Student() {
+  const navigate = useNavigate();
+  const [fullname, setFullname] = useState('');
   const [quizzes, setQuizzes] = useState([]);
   const [subject, setSubject] = useState('');
+  const [filteredQuizzes, setFilteredQuizzes] = useState([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -23,6 +27,7 @@ export default function Student() {
         };
         const response = await axios.get('http://localhost:4000/api/quiz', authConfig);
         setQuizzes(response.data);
+        setFilteredQuizzes(response.data);
       } catch (error) {
         console.error('Error fetching quizzes:', error);
       }
@@ -39,18 +44,23 @@ export default function Student() {
           Authorization: `Bearer ${token}`,
         }
       };
-      const response = await axios.post('http://localhost:4000/api/quiz/quizes', {
-        matiere,
-      }, authConfig);
-      setQuizzes(response.data);
+      console.log(`Searching for quizzes with matiere: ${matiere}`);
+      const response = await axios.post('http://localhost:4000/api/quiz/quizzes', 
+        { matiere },
+        authConfig
+      );
+      console.log('Response data:', response.data);
+      setFilteredQuizzes(response.data);
       setError('');
     } catch (error) {
+      console.error('Error response:', error);
       if (error.response) {
+        console.error('Error response data:', error.response.data);
         setError(error.response.data.message);
       } else {
         setError('Failed to fetch quizzes');
       }
-      setQuizzes([]);
+      setFilteredQuizzes([]);
     }
   };
 
@@ -60,9 +70,31 @@ export default function Student() {
     if (value) {
       handleSearch(value);
     } else {
-      setQuizzes([]);
+      setFilteredQuizzes(quizzes);
     }
   };
+
+  const handlelogout = () => {
+    console.log('Logging out...');
+    localStorage.removeItem('token');
+    navigate('/');
+  };
+
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get('http://localhost:4000/api/student/me', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      setFullname(response.data.fullname);
+    } catch (error) {
+      console.error('Error fetching full name:', error.message);
+      // Handle the error here
+    }
+  };
+  fetchData()
 
   return (
     <div className='student-nav'>
@@ -79,7 +111,7 @@ export default function Student() {
             value={subject}
             onChange={handleInputChange}
           />
-          <button className="nav-button">Logout <img src={logout} /></button>
+          <button className="nav-button" onClick={handlelogout}>Logout <img src={logout} /></button>
         </div>
       </div>
       <div className="container-fluid row">
@@ -97,32 +129,33 @@ export default function Student() {
           <div className="avatar">
             <div className="student-name">
               <h1>Welcome,</h1>
-              <h3>Naima Belchiti</h3>
+              <h3>{fullname}</h3>
             </div>
             <div className='img-avatar'>
               <img src={avatar} />
             </div>
           </div>
         </div>
-        <div className='cards-quize'>
-          <ul className='card-ul mt-4'>
-            {quizzes.map((quiz) => (
-              <div className='card-quizez' key={quiz._id}>
-                <li className='card-item'>
-                  <h1 className='quiz-title'>
+        <div className='cards-quize1'>
+          <ul className='card-ul1 mt-4'>
+            {filteredQuizzes.map((quiz) => (
+              <div className='card-quizez1' key={quiz._id}>
+                <li className='card-item1'>
+                  <h1 className='quiz-title1'>
                     Quiz Title: {quiz.title}
                   </h1>
                   <h4 className='quiz-title1'>Description: {quiz.description}</h4>
                   <h4 className='quiz-title1'>Matière: {quiz.matiere}</h4>
-                  <div className='button-quiz'>
-                    <button className='details-button'>
-                      <NavLink to={`Detailquize/${quiz._id}`} className='details-link'>Pratiquer</NavLink>
+                  <div className='button-quiz1'>
+                    <button className='details-button1'>
+                      <NavLink to={`/student/QuizQuestion/${quiz._id}`} className='details-link1'>Pratiquer</NavLink>
                     </button>
                   </div>
                 </li>
               </div>
             ))}
           </ul>
+          {error && <p className='error'>{error}</p>}
         </div>
       </div>
     </div>

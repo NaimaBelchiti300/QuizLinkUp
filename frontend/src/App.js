@@ -13,6 +13,8 @@ import SigninStudent from './componants/studentRegistration/studentSignin';
 import Formateur from './componants/formateur';
 import Student from './componants/student';
 import ProtectedRoute from './componants/services';
+import QuizQuestion from './componants/QuizQuestion';
+import Result from './componants/result';
 
 function App() {
   return (
@@ -44,7 +46,16 @@ function App() {
               <Student />
             </ProtectedRoute>
           } />
-
+          <Route path='/student/QuizQuestion/:id' element={
+            <ProtectedRoute>
+              <QuizQuestion/>
+            </ProtectedRoute>
+          } />
+            <Route path='/student/QuizQuestion/result' element={
+            <ProtectedRoute>
+              <Result/>
+            </ProtectedRoute>
+          } />
 
         </Routes>
       </Router>
