@@ -51,7 +51,7 @@ function App() {
               <QuizQuestion/>
             </ProtectedRoute>
           } />
-            <Route path='/student/QuizQuestion/result' element={
+            <Route path='/student/QuizQuestion/result/:id' element={
             <ProtectedRoute>
               <Result/>
             </ProtectedRoute>

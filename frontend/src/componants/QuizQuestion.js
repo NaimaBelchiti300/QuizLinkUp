@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const QuizQuestion = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [quiz, setQuiz] = useState(null);
     const [error, setError] = useState('');
 
@@ -21,8 +21,8 @@ const QuizQuestion = () => {
 
         fetchQuiz();
     }, [id]);
+
     const handleRadioChange = (e, questionIndex, optionIndex) => {
-        // Mettre à jour la réponse sélectionnée pour la question donnée
         const updatedQuiz = { ...quiz };
         const updatedQuestions = [...updatedQuiz.questions];
         const updatedQuestion = { ...updatedQuestions[questionIndex] };
@@ -31,7 +31,30 @@ const QuizQuestion = () => {
         updatedQuiz.questions = updatedQuestions;
         setQuiz(updatedQuiz);
     };
-   
+
+    const handleSubmit = async () => {
+        const answers = quiz.questions.map(question => ({
+            questionId: question._id,
+            answer: question.options[question.selectedOptionIndex]
+        }));
+
+        try {
+            const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
+            const response = await axios.post(`http://localhost:4000/api/quiz/quizes/${id}/submit`, {
+                answers
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            console.log('Quiz submitted successfully:', response.data);
+            navigate(`/student/QuizQuestion/result/${id}`);
+        } catch (error) {
+            console.error('Error submitting quiz:', error);
+            setError('Error submitting quiz');
+        }
+    };
 
     if (error) {
         return <p className='error'>{error}</p>;
@@ -67,10 +90,7 @@ const QuizQuestion = () => {
                             </ul>
                         </li>
                     ))}
-                    <NavLink to='/student'><button className='finish-quiz'>Back</button></NavLink>
-                    <NavLink to='/student/QuizQuestion/result'> <button className='finish-quiz' >Finish</button></NavLink>
-
-                   
+                    <button className='finish-quiz' onClick={handleSubmit}>Finish</button>
                 </ul>
             </div>
         </div>
