@@ -13,6 +13,7 @@ export default function Student() {
   const [fullname, setFullname] = useState('');
   const [quizzes, setQuizzes] = useState([]);
   const [subject, setSubject] = useState('');
+  const [searchCode,setsearchCode]=useState('')
   const [filteredQuizzes, setFilteredQuizzes] = useState([]);
   const [error, setError] = useState('');
 
@@ -45,7 +46,7 @@ export default function Student() {
         }
       };
       console.log(`Searching for quizzes with matiere: ${matiere}`);
-      const response = await axios.post('http://localhost:4000/api/quiz/quizzes', 
+      const response = await axios.post('http://localhost:4000/api/quiz/quizes', 
         { matiere },
         authConfig
       );
@@ -64,6 +65,36 @@ export default function Student() {
     }
   };
 
+
+  const handleSearchByKey = async (matiere) => {
+    try {
+      const token = localStorage.getItem('token');
+      const authConfig = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      };
+      console.log(`Searching for quizzes with searchCode: ${searchCode}`);
+      const response = await axios.post('http://localhost:4000/api/quiz/quizes/search', 
+        { searchCode },
+        authConfig
+      );
+      console.log('Response data:', response.data);
+      setFilteredQuizzes(response.data);
+      setError('');
+    } catch (error) {
+      console.error('Error response:', error);
+      if (error.response) {
+        console.error('Error response data:', error.response.data);
+        setError(error.response.data.message);
+      } else {
+        setError('Failed to fetch quizzes');
+      }
+      setFilteredQuizzes([]);
+    }
+  };
+
+
   const handleInputChange = (e) => {
     const value = e.target.value;
     setSubject(value);
@@ -73,6 +104,8 @@ export default function Student() {
       setFilteredQuizzes(quizzes);
     }
   };
+  
+
 
   const handlelogout = () => {
     console.log('Logging out...');
@@ -119,10 +152,11 @@ export default function Student() {
           <div className="inputs">
             <div className='inputs-buttom'>
               <div className='input-student'>
-                <input type='text' className='form-control' placeholder="Rechercher un quiz par le code fourni par l'enseignant" />
+                <input type='text' className='form-control' value={searchCode}
+            onChange={e=>setsearchCode(e.target.value)} placeholder="Rechercher un quiz par le code fourni par l'enseignant" />
               </div>
               <div className='bt-student'>
-                <button>Rechercher</button>
+                <button onClick={handleSearchByKey}>Rechercher</button>
               </div>
             </div>
           </div>
@@ -151,6 +185,11 @@ export default function Student() {
                       <NavLink to={`/student/QuizQuestion/${quiz._id}`} className='details-link1'>Pratiquer</NavLink>
                     </button>
                   </div>
+
+
+                   
+
+
                 </li>
               </div>
             ))}
