@@ -37,24 +37,28 @@ const QuizQuestion = () => {
             questionId: question._id,
             answer: question.options[question.selectedOptionIndex]
         }));
-
+    
+        console.log('Submitting answers:', answers);
+    
         try {
             const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
-            const response = await axios.post(`http://localhost:4000/api/quiz/quizes/${id}/submit`, {
+            const response = await axios.post(`http://localhost:4000/api/quiz/quizes/${id}/submitAndcomplete`, {
                 answers
             }, {
                 headers: {
-                    Authorization: `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json' // Ensure the content type is set to JSON
                 }
             });
-
+    
             console.log('Quiz submitted successfully:', response.data);
             navigate(`/student/QuizQuestion/result/${id}`);
         } catch (error) {
-            console.error('Error submitting quiz:', error);
+            console.error('Error submitting quiz:', error.response ? error.response.data : error.message);
             setError('Error submitting quiz');
         }
     };
+    
 
     if (error) {
         return <p className='error'>{error}</p>;
