@@ -15,6 +15,7 @@ import Student from './componants/student';
 import ProtectedRoute from './componants/services';
 import QuizQuestion from './componants/QuizQuestion';
 import Result from './componants/result';
+import CompletedQuizzes from './componants/completedactivitee';
 
 function App() {
   return (
@@ -56,6 +57,15 @@ function App() {
               <Result/>
             </ProtectedRoute>
           } />
+
+<Route path='/student/completedactivite' element={
+            <ProtectedRoute>
+              <CompletedQuizzes/>
+            </ProtectedRoute>
+          } />
+
+
+
 
         </Routes>
       </Router>

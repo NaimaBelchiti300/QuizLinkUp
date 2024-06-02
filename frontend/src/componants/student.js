@@ -136,7 +136,7 @@ export default function Student() {
       <div className='col-md-12 nav-student'>
         <Navbar.Brand className="mr-5 fw-large px-3 brand">QuizLinkUp</Navbar.Brand>
         <div className="nav-buttons">
-          <button className="nav-button">Activite <img src={activite} style={{ marginBottom: '6px' }} /></button>
+        <NavLink to='/student/completedactivite'><button className="nav-button">Activite <img src={activite} style={{ marginBottom: '6px' }} /></button></NavLink> 
           <input
             type='text'
             placeholder='Trouver Un Quiz Par Matière'
