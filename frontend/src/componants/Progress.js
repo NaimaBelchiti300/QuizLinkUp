@@ -107,7 +107,7 @@ class Progress extends Component {
     }
 
     if (error) {
-      return <div>Error: {error}</div>;
+      return <div style={{color:'red',textAlign:'center',marginTop:'150px',fontSize:'30px'}}> No student yet !</div>;
     }
 
     return (
