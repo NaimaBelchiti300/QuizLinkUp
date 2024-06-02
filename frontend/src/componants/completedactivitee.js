@@ -43,9 +43,11 @@ const CompletedQuizzes = () => {
   };
   const handleAssociate = async () => {
     try {
-      const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
+      const token = localStorage.getItem('token');
+      console.log('token is :',token);
       const config = {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` }
+        ,
       };
       const response = await axios.put('http://localhost:4000/api/student/associateWithEducator', { email }, config);
       Swal.fire({
@@ -65,7 +67,6 @@ const CompletedQuizzes = () => {
       });
     }
   };
-  
 
   return (
     <div>
@@ -107,6 +108,7 @@ const CompletedQuizzes = () => {
               <h2 style={{ fontWeight: 'bold', fontSize: '50px' }}>{quiz.title} <img style={{ width: '40px' }} src={done} /></h2>
               <p><strong>Description:</strong> {quiz.description}</p>
               <p><strong>Matière:</strong> {quiz.matiere}</p>
+              <p style={{color:'red'}}><strong>Score:</strong>{quiz.score}</p>
             </li>
           </CSSTransition>
         ))}
