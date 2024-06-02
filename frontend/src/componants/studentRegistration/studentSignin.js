@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -6,20 +5,21 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import imgstudents from '../../images/image-removebg-preview (21).png'
 import '../../css/studentsignin.css'
-export default function SigninStudent(){
+
+export default function SigninStudent() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-});
-const { email, password } = formData;
-const navigate = useNavigate();
-const [error, setError] = useState('');
+  });
+  const { email, password } = formData;
+  const navigate = useNavigate();
+  const [error, setError] = useState('');
 
-const onChange = e => {
+  const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-};
+  };
 
-const onSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     try {
       const config = {
@@ -50,50 +50,44 @@ const onSubmit = async (e) => {
         icon: 'success',
         title: 'Success!',
         text: 'login réussie! your welcom !...',
-    });      navigate("/student"); 
+      });
+      navigate("/student");
     } catch (err) {
-      console.error(err.response.data);
-    
-      setError("Invalid email or password. Please try again.");
+      console.error(err);
+      // Extraire le message d'erreur spécifique du backend
+      const errorMessage = err.response?.data?.message || 'Invalid email or password. Please try again.';
+      setError(errorMessage);
       Swal.fire({
         icon: 'error',
-        title: ' error !',
-        text: 'Invalid email or password. Please try again.',
-    });
+        title: 'Error!',
+        text: errorMessage,
+      });
     }
   };
-    return(
-        <>
-        
-        <div className='row forms1 mx-auto mt-5 pt-5'>
 
+  return (
+    <>
+      <div className='row forms1 mx-auto mt-5 pt-5'>
         <div className='col-md-6 imgdiv1 position-relative'>
-  <img src={imgstudents} className='position-absolute start-0'/>
-</div>
-  <div className='col-md-6 formsinput1'>
- 
-  <h1 className='text11 text-center'>Student Login</h1>
-
-    <form className='form-group' onSubmit={onSubmit}>
-      <label>Email</label>
-      <input className='form-control' name='email'  type='email' value={email}  onChange={onChange}/>
-      <label>Password</label>
-      <input className='form-control' name='password'  type='password'  value={password} onChange={onChange}/>
-      <div className='btnn11'>
-      <button type='submit' className='btn buttonstudent11'>Sign in</button>
-    
+          <img src={imgstudents} className='position-absolute start-0' alt='Student' />
+        </div>
+        <div className='col-md-6 formsinput1'>
+          <h1 className='text11 text-center'>Student Login</h1>
+          <form className='form-group' onSubmit={onSubmit}>
+            <label>Email</label>
+            <input className='form-control' name='email' type='email' value={email} onChange={onChange} />
+            <label>Password</label>
+            <input className='form-control' name='password' type='password' value={password} onChange={onChange} />
+            <div className='btnn11'>
+              <button type='submit' className='btn buttonstudent11'>Sign in</button>
+            </div>
+            <div className="d-flex justify-content-center">
+              <span>Don't Have an Account ? </span>
+              <Link className='thetext' to='/student/signup' style={{ color: '#974EB0' }}> Create it</Link>
+            </div>
+          </form>
+        </div>
       </div>
-      <div className="d-flex justify-content-center">
-      <span>Don't Have an Account ? </span>
-<Link className='thetext' to='/student/signup'style={{color:'#974EB0'}} > Create it</Link>
-                                </div>
-    </form>
-  </div>
-
-</div>
-
-        
-        
-        </>
-    )
+    </>
+  );
 }

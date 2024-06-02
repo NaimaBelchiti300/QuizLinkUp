@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const QuizQuestion = () => {
@@ -75,25 +76,28 @@ const QuizQuestion = () => {
                     <h1 className='quizetitlestudent'>{quiz.title}</h1>
                     <p className='quizetitlestudent'>{quiz.description}</p>
                     {quiz.questions.map((question, questionIndex) => (
-                        <li key={question._id}>
-                            <h3 className='quizetitlestudent22'>{question.question} ?</h3>
-                            <ul>
-                                {question.options.map((option, optionIndex) => (
-                                    <li key={optionIndex}>
-                                        <label>
-                                            <input 
-                                                type='radio'
-                                                name={`question-${questionIndex}`}
-                                                value={option}
-                                                onChange={(e) => handleRadioChange(e, questionIndex, optionIndex)}
-                                            />
-                                            {option}
-                                        </label>
-                                    </li>
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
+  <li key={question._id}>
+    <h3 className='quizetitlestudent22'>{question.question} ?</h3>
+    <ul className='options-list'>
+      {question.options.map((option, optionIndex) => (
+        <li key={optionIndex} className="option-item">
+          <label className="option-label">
+            <input 
+              type='radio'
+              name={`question-${questionIndex}`}
+              value={option}
+              onChange={(e) => handleRadioChange(e, questionIndex, optionIndex)}
+            />
+            <span className="option-text">{option}</span>
+          </label>
+        </li>
+      ))}
+    </ul>
+  </li>
+))}
+                    
+                                <NavLink to='/student'><button className='finish-quiz'>Back</button></NavLink>
+
                     <button className='finish-quiz' onClick={handleSubmit}>Finish</button>
                 </ul>
             </div>

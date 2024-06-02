@@ -326,8 +326,33 @@ margin-top: 25px;
 color: white;
 
 }
+.options-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+  font-size: 25px;
+}
+
+.option-item {
+  margin-bottom: 10px;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+}
+
+.option-label input[type="radio"] {
+  margin-right: 10px;
+}
+
+.option-text {
+  /* Ajoutez vos styles personnalisés ici */
+}
+
 .myquiz2{
-  width: 50%;
+  width: 70%;
   background-color: papayawhip;
   text-align: center;
   list-style: none;

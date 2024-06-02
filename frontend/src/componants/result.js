@@ -18,7 +18,10 @@ export default function Result() {
                         Authorization: `Bearer ${token}`
                     }
                 });
-                setScoreData({ score: response.data.score, totalPossibleScore: response.data.totalPossibleScore });
+                setScoreData({ 
+                    score: response.data.score, 
+                    totalPossibleScore: response.data.totalPossibleScore 
+                });
             } catch (error) {
                 console.error('Erreur lors de la récupération du résultat :', error);
                 setError('Impossible de récupérer le résultat');
@@ -36,12 +39,22 @@ export default function Result() {
         return <p>Loading...</p>;
     }
 
+    const passingScore = scoreData.totalPossibleScore / 2;
+
     return (
         <div className='resultsection'>
-            <Confetti />
-            <div className='felicitation'>
-                <h1>Félicitations ! Vous avez obtenu un score de {scoreData.score} sur {scoreData.totalPossibleScore}.</h1>
-            </div>
+            {scoreData.score > passingScore ? (
+                <>
+                    <Confetti />
+                    <div className='felicitation'>
+                        <h1>Félicitations ! Vous avez obtenu un score de {scoreData.score} sur {scoreData.totalPossibleScore}.</h1>
+                    </div>
+                </>
+            ) : (
+                <div className='felicitation'>
+                    <h1 style={{color:'red'}}>Oops ! Vous n'avez pas réussi... (Votre score est de {scoreData.score} sur {scoreData.totalPossibleScore}.)</h1>
+                </div>
+            )}
             <NavLink to='/student'><button className='finish-quizresult'>Back</button></NavLink>
         </div>
     );

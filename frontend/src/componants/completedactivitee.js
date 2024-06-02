@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Swal from 'sweetalert2';
 
 import logout from '../images/icons8-sortie-24 (1).png';
 import activite from '../images/icons8-temps-24 (1).png';
@@ -40,20 +41,31 @@ const CompletedQuizzes = () => {
     localStorage.removeItem('token');
     navigate('/');
   };
-
   const handleAssociate = async () => {
     try {
       const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       };
-      const response = await axios.post('http://localhost:4000/api/student/associateWithEducator', { email }, config);
-      setMessage(response.data.message);
+      const response = await axios.put('http://localhost:4000/api/student/associateWithEducator', { email }, config);
+      Swal.fire({
+        title: 'Success!',
+        text: 'You are successfully associated with your educator',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+      setEmail('')
     } catch (error) {
       console.error('Error associating with educator:', error);
-      setMessage('Failed to associate with educator');
+      Swal.fire({
+        title: 'Error!',
+        text: 'Failed to associate with educator',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     }
   };
+  
 
   return (
     <div>
@@ -82,7 +94,6 @@ const CompletedQuizzes = () => {
             <button onClick={handleAssociate}>Done</button>
           </div>
         </div>
-        {message && <p>{message}</p>}
       </div>
 
       <TransitionGroup className="quiz-list">
