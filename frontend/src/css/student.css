@@ -516,3 +516,30 @@ color: #d87093;
   align-items: center;
   display: flex;
 }
+
+.get-students{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.get-students button {
+  color: rgb(179, 179, 179);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 250px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5px;
+
+  
+}
+
+.get-students button:hover {
+  color: #6a3fa0;
+}
