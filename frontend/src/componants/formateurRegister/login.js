@@ -79,7 +79,7 @@ function LoginFormatuer() {
       <MDBContainer fluid className="pt-3 mt-3">
         <MDBRow className="pt-5 mt-5">
           <MDBCol col='10' md='6'>
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
+            <img src="https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7962.jpg" className="img-fluid" alt="educator signin image" />
           </MDBCol>
 
           <MDBCol col='4' md='6' >
