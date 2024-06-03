@@ -3,7 +3,6 @@ import { Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Swal from 'sweetalert2';
 
 import logout from '../images/icons8-sortie-24 (1).png';
@@ -17,17 +16,17 @@ import '../css/student.css';
 const CompletedQuizzes = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCompletedQuizzes = async () => {
       try {
-        const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
+        const token = localStorage.getItem('token');
         const config = {
           headers: { Authorization: `Bearer ${token}` },
         };
         const response = await axios.get('http://localhost:4000/api/student/completedQuizzes', config);
+        console.log(response.data); // Log the response to check the data structure
         setQuizzes(response.data);
       } catch (error) {
         console.error('Error fetching completed quizzes:', error);
@@ -41,13 +40,13 @@ const CompletedQuizzes = () => {
     localStorage.removeItem('token');
     navigate('/');
   };
+
   const handleAssociate = async () => {
     try {
       const token = localStorage.getItem('token');
-      console.log('token is :',token);
+      console.log('token is :', token);
       const config = {
-        headers: { Authorization: `Bearer ${token}` }
-        ,
+        headers: { Authorization: `Bearer ${token}` },
       };
       const response = await axios.put('http://localhost:4000/api/student/associateWithEducator', { email }, config);
       Swal.fire({
@@ -56,7 +55,7 @@ const CompletedQuizzes = () => {
         icon: 'success',
         confirmButtonText: 'OK'
       });
-      setEmail('')
+      setEmail('');
     } catch (error) {
       console.error('Error associating with educator:', error);
       Swal.fire({
@@ -97,22 +96,16 @@ const CompletedQuizzes = () => {
         </div>
       </div>
 
-      <TransitionGroup className="quiz-list">
-        {quizzes.map((quiz, index) => (
-          <CSSTransition
-            key={index}
-            timeout={500}
-            classNames="quiz-transition"
-          >
-            <li key={index} className="quiz-card">
-              <h2 style={{ fontWeight: 'bold', fontSize: '50px' }}>{quiz.title} <img style={{ width: '40px' }} src={done} /></h2>
-              <p><strong>Description:</strong> {quiz.description}</p>
-              <p><strong>Matière:</strong> {quiz.matiere}</p>
-              <p style={{color:'red'}}><strong>Score:</strong>{quiz.score}</p>
-            </li>
-          </CSSTransition>
+      <ul className="quiz-list">
+        {quizzes.map((quizData, index) => (
+          <li key={quizData.quiz._id} className="quiz-card bg-light">
+            <h2 style={{ fontWeight: 'bold', fontSize: '50px' }}>{quizData.quiz.title} <img style={{ width: '40px' }} src={done} /></h2>
+            <p><strong>Description:</strong> {quizData.quiz.description}</p>
+            <p><strong>Matière:</strong> {quizData.quiz.matiere}</p>
+            <p style={{ color: 'red' }}><strong>Score:</strong> {quizData.score}</p>
+          </li>
         ))}
-      </TransitionGroup>
+      </ul>
     </div>
   );
 };
