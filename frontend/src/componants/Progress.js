@@ -122,7 +122,7 @@ class Progress extends Component {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header text-center">
-                <h1 style={{textAlign:'center'}}>Your Student List</h1>
+                <h1 style={{textAlign:'center'}}>Your Students List</h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body">
@@ -130,7 +130,7 @@ class Progress extends Component {
                   <ul>
                     {students.map(student => (
                       <li key={student._id} style={{color:'purple' ,fontWeight:'bold',fontSize:'20px'}}>
-                        Full Name: {student.fullname}, Email: {student.email}
+                        Full Name: {student.fullname},<br/> Email: {student.email}
                       </li>
                     ))}
                   </ul>
